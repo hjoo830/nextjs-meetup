@@ -1,8 +1,22 @@
+import MeetUpDetail from "@/components/meetups/MeetUpDetail";
 import { MongoClient, ObjectId } from "mongodb";
+import Head from "next/head";
 import React from "react";
 
 const MeetUpDetailPage = ({ meetupData }) => {
-  return <div>MeetUpDetailPage</div>;
+  return (
+    <>
+      <Head>
+        <title>{meetupData.title}</title>
+      </Head>
+      <MeetUpDetail
+        image={meetupData.image}
+        title={meetupData.title}
+        address={meetupData.address}
+        description={meetupData.description}
+      />
+    </>
+  );
 };
 
 export default MeetUpDetailPage;
