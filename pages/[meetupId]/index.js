@@ -1,4 +1,4 @@
-import MeetUpDetail from "@/components/meetups/MeetUpDetail";
+import MeetupDetail from "@/components/meetups/MeetupDetail";
 import { MongoClient, ObjectId } from "mongodb";
 import Head from "next/head";
 import React from "react";
@@ -9,7 +9,7 @@ const MeetUpDetailPage = ({ meetupData }) => {
       <Head>
         <title>{meetupData.title}</title>
       </Head>
-      <MeetUpDetail
+      <MeetupDetail
         image={meetupData.image}
         title={meetupData.title}
         address={meetupData.address}

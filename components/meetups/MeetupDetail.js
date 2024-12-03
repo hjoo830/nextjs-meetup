@@ -1,6 +1,6 @@
 import React from "react";
 
-const MeetUpDetail = ({ image, title, address, description }) => {
+const MeetupDetail = ({ image, title, address, description }) => {
   return (
     <section>
       <h1>{title}</h1>
@@ -10,4 +10,4 @@ const MeetUpDetail = ({ image, title, address, description }) => {
   );
 };
 
-export default MeetUpDetail;
+export default MeetupDetail;
