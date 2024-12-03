@@ -1,0 +1,28 @@
+.header {
+  background-color: #3F72AF;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navItem {
+  text-decoration: none;
+  color: white;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}

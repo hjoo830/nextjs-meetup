@@ -1,17 +1,22 @@
 import Link from "next/link";
 import React from "react";
+import styles from "@/styles/MainNavigation.module.css";
 
 const MainNavigation = () => {
   return (
-    <header>
-      <div>모임 사이트</div>
+    <header className={styles.header}>
+      <div className={styles.logo}>모임 사이트</div>
       <nav>
-        <ul>
+        <ul className={styles.navList}>
           <li>
-            <Link href="/">모든 모임</Link>
+            <Link href="/" className={styles.navItem}>
+              모든 모임
+            </Link>
           </li>
           <li>
-            <Link href="/new-meetup">새로운 모임 추가</Link>
+            <Link href="/new-meetup" className={styles.navItem}>
+              새로운 모임 추가
+            </Link>
           </li>
         </ul>
       </nav>
