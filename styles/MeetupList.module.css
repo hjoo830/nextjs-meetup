@@ -1,0 +1,8 @@
+.meetupList {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
