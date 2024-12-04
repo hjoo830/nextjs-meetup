@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Card from "../ui/Card";
+import styles from "@/styles/NewMeetupForm.module.css";
 
 const NewMeetupForm = ({ router }) => {
   const titleInputRef = useRef(null);
@@ -35,34 +36,65 @@ const NewMeetupForm = ({ router }) => {
   }
 
   return (
-    <Card>
-      <form onSubmit={handSubmit}>
-        <div>
-          <label htmlFor="title">모임 이름</label>
-          <input type="text" required id="title" ref={titleInputRef} />
-        </div>
-        <div>
-          <label htmlFor="image">모임 사진</label>
-          <input type="url" required id="image" ref={imageInputRef} />
-        </div>
-        <div>
-          <label htmlFor="address">모임 주소</label>
-          <input type="text" required id="address" ref={addressInputRef} />
-        </div>
-        <div>
-          <label htmlFor="description">설명</label>
-          <textarea
-            rows={5}
-            required
-            id="description"
-            ref={descriptionInputRef}
-          />
-        </div>
-        <div>
-          <button type="submit">모임 생성하기</button>
-        </div>
-      </form>
-    </Card>
+    <div className={styles.newMeetup}>
+      <Card>
+        <form onSubmit={handSubmit} className={styles.form}>
+          <div className={styles.inputContainer}>
+            <label htmlFor="title" className={styles.label}>
+              모임 이름
+            </label>
+            <input
+              type="text"
+              required
+              id="title"
+              ref={titleInputRef}
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="image" className={styles.label}>
+              모임 사진
+            </label>
+            <input
+              type="url"
+              required
+              id="image"
+              ref={imageInputRef}
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="address" className={styles.label}>
+              모임 주소
+            </label>
+            <input
+              type="text"
+              required
+              id="address"
+              ref={addressInputRef}
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="description" className={styles.label}>
+              설명
+            </label>
+            <textarea
+              rows={5}
+              required
+              id="description"
+              ref={descriptionInputRef}
+              className={styles.input}
+            />
+          </div>
+          <div>
+            <button type="submit" className={styles.button}>
+              모임 생성하기
+            </button>
+          </div>
+        </form>
+      </Card>
+    </div>
   );
 };
 

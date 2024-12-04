@@ -1,0 +1,43 @@
+.newMeetup {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 20px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #3F72AF;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #769FCD;
+}
