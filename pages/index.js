@@ -6,7 +6,7 @@ export default function Home({ meetups }) {
   return (
     <>
       <Head>
-        <title>모임 웹 사이트</title>
+        <title>Meetup Together</title>
       </Head>
       <main>
         <MeetupList meetups={meetups} />

@@ -5,7 +5,7 @@ import styles from "@/styles/MainNavigation.module.css";
 const MainNavigation = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>모임 사이트</div>
+      <div className={styles.logo}>Meetup Together</div>
       <nav>
         <ul className={styles.navList}>
           <li>
