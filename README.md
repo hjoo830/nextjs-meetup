@@ -1,40 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌐 Meetup Together
+Meetup Together는 다양한 사람들과 새로운 모임을 쉽게 시작할 수 있는 플랫폼입니다.
+Next.js와 MongoDB로 구축된 이 플랫폼은 누구나 간편하게 모임을 생성하고 참여할 수 있도록 설계되었습니다.
 
-## Getting Started
+(demo.gif)
 
-First, run the development server:
+## 📌 주요 기능
+1. 모임 생성
+   - 모임 이름, 모임 사진 URL, 모임 주소, 설명을 추가해 새로운 모임을 생성할 수 있습니다.
+   - 간단한 양식으로 누구나 쉽게 모임을 생성할 수 있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. 모임 목록 조회
+   - 등록된 모든 모임을 카드 형태로 한눈에 확인할 수 있습니다.
+   - 직관적인 UI를 통해 모임의 이름, 장소 등을 빠르게 파악할 수 있습니다.
+    
+3. 모임 상세 정보 조회
+   - 모임 목록에서 자세히 보기 버튼을 눌러 상세 정보를 조회할 수 있습니다.
+   - 모임을 생성할 때 입력했던 모임 이름, 사진, 장소, 설명을 조회할 수 있습니다.
+
+## 🛠️ 사용 기술
+### Next.js
+- React 기반의 프레임워크로, Pages Router를 활용해 페이지 기반의 라우팅을 구현했습니다.
+- 서버 사이드 렌더링(SSR)과 정적 사이트 생성(SSG) 기능을 사용해 SEO를 최적화하고 빠른 성능을 제공합니다.
+  
+### MongoDB
+- 효율적이고 확장 가능한 NoSQL 데이터베이스로, 모임 데이터를 안전하게 저장하고 관리합니다.
+
+## 🚀 Pages Router란?
+Next.js의 라우팅 시스템으로, 파일 시스템을 기반으로 페이지를 정의합니다.
+프로젝트의 ```pages/``` 디렉토리 안의 파일 구조가 URL 경로로 자동 매핑되며, 동적 라우팅과 API 엔드포인트도 동일한 디렉토리에서 관리할 수 있습니다.
+
+### 💡 Pages Router 주요 특징
+1. 자동 라우팅
+- 파일 이름이 URL로 매핑되므로 별도의 라우팅 설정이 필요하지 않습니다.
+- 예) ```pages/index.js``` → ```/```
+- 예) ```pages/new-meetup/index.js``` → ```/new-meetup```
+
+2. 동적 라우팅
+- 대괄호(```[]```)를 사용해 동적인 경로를 처리할 수 있습니다.
+- ```[meetupId]/index.js```는 URL에서 meetupId 값을 파라미터로 받아와 동적으로 페이지를 렌더링합니다.
+- 예) ```/meetup/123```에서 123은 meetupId로 전달됩니다.
+
+3. API 라우트
+- ```pages/api/``` 디렉토리 내의 파일은 API 엔드포인트로 동작합니다.
+- 예) ```pages/api/hello.js``` → ```/api/hello```
+
+4. 글로벌 레이아웃 및 문서 설정
+- ```_app.js```: 모든 페이지에서 공통으로 사용하는 레이아웃과 상태를 관리합니다.
+- ```_document.js```: HTML <head> 태그 등 전체 문서 구조를 커스터마이징합니다.
+
+### 🏛️ Pages Router 구조
+Meetup Together 프로젝트에서 사용된 Pages Router 구조는 아래와 같습니다.
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+pages/
+│
+├── [meetupId]/index.js   # 동적 라우팅 페이지: 특정 모임의 상세 정보
+├── api/                  # API 엔드포인트를 처리하는 디렉토리
+├── fonts/                # 웹폰트 관리
+├── new-meetup/index.js   # 새로운 모임 생성 페이지
+├── _app.js               # 전역 상태 및 레이아웃 설정
+├── _document.js          # HTML 문서 구조 커스터마이징
+└── index.js              # 메인 페이지: 모임 목록
+```
+- 모임 목록 페이지 (```/```)
+  - 등록된 모든 모임을 한눈에 확인할 수 있는 메인 화면을 제공합니다.
+  - 각 모임은 카드 형태로 나열되어 있으며, 모임 이름, 장소, 사진이 포함됩니다.
+- 모임 상세 페이지 (```/meetup/[id]```)
+  - 특정 모임의 세부 정보를 조회할 수 있는 페이지입니다.
+  - URL 파라미터를 사용해 각 모임의 ID에 따라 데이터를 동적으로 렌더링합니다.
+  - 선택한 모임의 이름, 장소, 사진, 설명을 보여줍니다.
+- 모임 생성 페이지 (```/new-meetup```)
+  - 새로운 모임을 등록할 수 있는 양식을 제공합니다.
+  - 사용자가 입력한 데이터를 MongoDB에 저장하며, 성공적으로 저장된 후 메인 화면으로 리다이렉트됩니다.
